@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "PolyMind 主窗口的最小权限集：只开核心 IPC、文件对话框与打开链接，不开放任意文件系统与 shell 插件。",
+  "windows": ["main"],
+  "permissions": ["core:default", "dialog:default", "opener:default"]
+}

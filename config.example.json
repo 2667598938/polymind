@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "default_model": "deepseek/deepseek-chat",
+  "approval_mode": "ask",
+  "allowed_roots": ["C:\\Users\\你的用户名\\Projects"],
+  "command_allowlist": ["git", "node", "npm", "pnpm", "cargo", "python", "pytest", "rg"],
+  "max_steps": 16,
+  "context_budget_tokens": 96000,
+  "fallback_models": ["gemini/gemini-2.5-flash"],
+  "system_prompt_extra": "",
+  "theme": "graphite",
+  "providers": [
+    {
+      "id": "deepseek",
+      "kind": "openai",
+      "label": "DeepSeek",
+      "base_url": "https://api.deepseek.com/v1",
+      "default_model": "deepseek-chat",
+      "models": ["deepseek-chat", "deepseek-reasoner"],
+      "pricing": { "input_per_mtok": 0.27, "output_per_mtok": 1.1, "cache_read_per_mtok": 0.07 },
+      "enabled": true
+    },
+    {
+      "id": "claude",
+      "kind": "anthropic",
+      "label": "Claude",
+      "base_url": "https://api.anthropic.com",
+      "default_model": "claude-sonnet-4-5",
+      "models": ["claude-sonnet-4-5", "claude-opus-4-1"],
+      "pricing": { "input_per_mtok": 3.0, "output_per_mtok": 15.0, "cache_read_per_mtok": 0.3 },
+      "enabled": true
+    },
+    {
+      "id": "local",
+      "kind": "ollama",
+      "label": "本地 Qwen",
+      "base_url": "http://127.0.0.1:11434/v1",
+      "default_model": "qwen2.5:7b",
+      "models": ["qwen2.5:7b"],
+      "pricing": { "input_per_mtok": 0, "output_per_mtok": 0, "cache_read_per_mtok": 0 },
+      "enabled": true
+    }
+  ],
+  "mcp_servers": [
+    {
+      "name": "filesystem",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "C:\\Users\\你的用户名\\Projects"],
+      "env": {},
+      "enabled": true,
+      "auto_start": true
+    }
+  ]
+}

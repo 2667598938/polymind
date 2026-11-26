@@ -1,0 +1,25 @@
+# 依赖与构建产物
+node_modules/
+dist/
+*.log
+scripts/*.log
+*.tar.gz
+
+# Rust
+core/target/
+src-tauri/target/
+src-tauri/gen/
+
+# 本地数据（绝不要提交）
+.polymind/
+*.db
+*.db-wal
+*.db-shm
+secrets.key
+config.json
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

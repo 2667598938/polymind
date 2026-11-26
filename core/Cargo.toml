@@ -1,0 +1,39 @@
+[package]
+name = "polymind-core"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.77"
+description = "PolyMind 多模型智能体内核：供应商适配层、ReAct 工具循环、权限门、MCP 客户端、会话存储与成本账本"
+
+[dependencies]
+tokio = { version = "1.40", features = ["full"] }
+tokio-util = { version = "0.7", features = ["rt"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "stream", "rustls-tls"] }
+futures-util = "0.3"
+async-stream = "0.3"
+async-trait = "0.1"
+bytes = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tracing = "0.1"
+rusqlite = { version = "0.32", features = ["bundled"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+chacha20poly1305 = "0.10"
+base64 = "0.22"
+regex = "1"
+walkdir = "2"
+rand = "0.8"
+
+[dev-dependencies]
+tempfile = "3"
+tokio = { version = "1.40", features = ["full", "test-util"] }
+
+[lib]
+name = "polymind_core"
+path = "src/lib.rs"
+
+[[bin]]
+name = "polymind-cli"
+path = "src/bin/cli.rs"
